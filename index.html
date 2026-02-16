@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>recycling guide · knoxville & maryville</title>
+  <!-- Font & base for clean UI/UX with amazing animation -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300..700&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background: linear-gradient(145deg, #d0dde8 0%, #bdcbd9 100%);
+      font-family: "Inter", system-ui, -apple-system, sans-serif;
+      color: #1f2d3c;
+      line-height: 1.5;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 2rem 1rem;
+    }
+
+    .article-card {
+      max-width: 1100px;
+      background: rgba(255, 255, 250, 0.88);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      border-radius: 4rem 4rem 3.2rem 3.2rem;
+      box-shadow: 0 60px 95px -35px #2f5570, 0 30px 40px -15px #1c3649;
+      padding: 3rem 3.2rem;
+      border: 1px solid rgba(230, 245, 255, 0.7);
+      transition: transform 0.3s ease, box-shadow 0.5s;
+      animation: recycleRise 0.9s cubic-bezier(0.12, 0.75, 0.3, 1) forwards;
+    }
+
+    .article-card:hover {
+      box-shadow: 0 80px 120px -35px #1f6b94;
+    }
+
+    @keyframes recycleRise {
+      0% { opacity: 0; transform: translateY(45px) scale(0.97); }
+      100% { opacity: 1; transform: translateY(0) scale(1); }
+    }
+
+    /* recycling blinking animation */
+    @keyframes recyclePulse {
+      0% { background: rgba(210, 240, 210, 0.2); border-left-color: #2d7a4b; border-right-color: #2d7a4b; }
+      40% { background: rgba(210, 240, 210, 0.5); border-left-color: #eab358; border-right-color: #eab358; }
+      80% { background: rgba(210, 240, 210, 0.25); border-left-color: #2d7a4b; border-right-color: #2d7a4b; }
+      100% { background: rgba(210, 240, 210, 0.2); border-left-color: #2d7a4b; border-right-color: #2d7a4b; }
+    }
+
+    .blink-recycle {
+      animation: recyclePulse 3.3s infinite ease-in-out;
+      border-left: 12px solid #1f6a3b;
+      border-right: 12px solid #1f6a3b;
+      border-radius: 4rem;
+      padding: 2.2rem 2.5rem;
+      background: rgba(225, 245, 225, 0.3);
+      margin: 3rem 0;
+    }
+
+    h1 {
+      font-size: 3rem;
+      font-weight: 650;
+      letter-spacing: -0.02em;
+      margin-bottom: 1.2rem;
+      background: linear-gradient(145deg, #1e6b47, #0d402b);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      border-bottom: 4px solid #b8e0cc;
+      padding-bottom: 1rem;
+    }
+
+    .title-emoji {
+      font-size: 3.8rem;
+      filter: drop-shadow(2px 8px 16px #4f9e72);
+    }
+
+    .subhead {
+      font-size: 1.4rem;
+      font-weight: 340;
+      color: #1f7a4b;
+      margin-bottom: 2.2rem;
+      padding-left: 2.2rem;
+      border-left: 8px solid #e7aa4d;
+      background: #e4f7ec70;
+      border-radius: 0 80px 80px 0;
+      padding: 0.8rem 2.2rem;
+    }
+
+    h2 {
+      font-size: 2.4rem;
+      font-weight: 580;
+      margin: 2.8rem 0 1.4rem 0;
+      color: #1e6943;
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      border-bottom: 3px dashed #abd6bd;
+      padding-bottom: 0.6rem;
+    }
+
+    h2 span {
+      font-size: 2.7rem;
+    }
+
+    h3 {
+      font-size: 2rem;
+      font-weight: 500;
+      margin: 2rem 0 1rem;
+      color: #1f7a4e;
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+
+    p {
+      margin-bottom: 1.3rem;
+      font-weight: 350;
+      color: #1c4f36;
+      font-size: 1.1rem;
+    }
+
+    /* facility grid: county + city */
+    .facility-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 2.2rem;
+      margin: 2.5rem 0 2rem;
+    }
+
+    .facility-card {
+      background: #ffffffee;
+      border-radius: 3rem;
+      padding: 2rem 1.8rem;
+      box-shadow: 0 22px 40px -22px #1f6f4a;
+      transition: all 0.3s;
+      border: 1px solid white;
+      backdrop-filter: blur(2px);
+    }
+
+    .facility-card:hover {
+      transform: translateY(-10px) scale(1.02);
+      background: white;
+      border-color: #dba85a;
+      box-shadow: 0 32px 48px -28px #1d734b;
+    }
+
+    .facility-icon {
+      font-size: 4rem;
+      margin-bottom: 0.8rem;
+    }
+
+    .facility-title {
+      font-weight: 650;
+      font-size: 1.8rem;
+      color: #1b6a41;
+      margin: 0.5rem 0 0.3rem;
+    }
+
+    .badge-facility {
+      background: #d68f44;
+      color: #1b3528;
+      border-radius: 40px;
+      padding: 0.2rem 1.2rem;
+      font-size: 0.9rem;
+      font-weight: 500;
+      display: inline-block;
+      margin: 1rem 0 0.2rem;
+    }
+
+    /* accepted materials grid */
+    .materials-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 1.2rem;
+      margin: 1.5rem 0;
+    }
+
+    .material-item {
+      background: #e1f3e9;
+      border-radius: 3rem;
+      padding: 0.8rem 1.2rem;
+      font-weight: 500;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 1.1rem;
+    }
+
+    /* graphic strip */
+    .graphic-strip {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 45px;
+      background: #daf0e4;
+      border-radius: 150px;
+      padding: 2rem 3.5rem;
+      margin: 2.5rem 0;
+      flex-wrap: wrap;
+    }
+
+    .graphic-icon {
+      font-size: 4rem;
+      filter: drop-shadow(0 8px 18px #4e9e73);
+      transition: transform 0.2s;
+    }
+
+    .graphic-icon:hover {
+      transform: rotate(8deg) scale(1.15);
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      background: #ffffffee;
+      border-radius: 3rem;
+      overflow: hidden;
+      box-shadow: 0 20px 42px -22px #1e6f48;
+      margin: 2.5rem 0;
+      backdrop-filter: blur(4px);
+    }
+
+    th {
+      background: #1f7a4e;
+      color: white;
+      font-weight: 500;
+      padding: 1.2rem 1.8rem;
+      text-align: left;
+      font-size: 1.2rem;
+    }
+
+    td {
+      padding: 1.2rem 1.8rem;
+      border-bottom: 1px solid #c2eed9;
+      vertical-align: top;
+    }
+
+    tr:last-child td {
+      border-bottom: none;
+    }
+
+    .footer-links {
+      margin-top: 5rem;
+      padding-top: 2.8rem;
+      border-top: 6px solid #b8e0cc;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 2.8rem;
+      justify-content: center;
+      font-size: 1.3rem;
+      background: #eafaf2;
+      border-radius: 80px 80px 40px 40px;
+      padding: 2rem 3.5rem;
+      backdrop-filter: blur(3px);
+    }
+
+    .footer-links a {
+      text-decoration: none;
+      font-weight: 500;
+      padding: 0.8rem 2.2rem;
+      border-radius: 70px;
+      background: white;
+      border: 1px solid #b2e0c8;
+      color: #1b6a43;
+      transition: all 0.25s;
+      box-shadow: 0 6px 18px #9ecfb5;
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .footer-links a:hover {
+      background: #def7ea;
+      border-color: #c99e4b;
+      transform: scale(1.07);
+      box-shadow: 0 18px 28px #8bc0a5;
+    }
+
+    .blink-dot {
+      width: 16px;
+      height: 16px;
+      background: #ecaa4b;
+      border-radius: 50%;
+      display: inline-block;
+      margin-right: 12px;
+      animation: dotGreen 1.8s infinite;
+    }
+
+    @keyframes dotGreen {
+      0% { opacity: 0.4; background: #cc8228; }
+      50% { opacity: 1; background: #ffc468; box-shadow: 0 0 22px #f5a93b; }
+      100% { opacity: 0.4; background: #cc8228; }
+    }
+
+    @media (max-width: 750px) {
+      .article-card { padding: 2rem 1.5rem; }
+      h1 { font-size: 2.5rem; }
+    }
+  </style>
+</head>
+<body>
+<div class="article-card">
+  <h1>
+    <span class="title-emoji">♻️🏞️</span> knoxville & maryville recycling guide
+  </h1>
+  <div class="subhead">locations · accepted materials · hours · how to use them right</div>
+
+  <!-- intro with blinking dot -->
+  <p><span class="blink-dot"></span> <strong>Recycling should be simple — but knowing what goes where can be confusing.</strong> This guide covers the key facilities in Knox County and the Maryville area, including Knox County Convenience Centers, City of Knoxville drop-off sites, and Blount County options. All information is pulled from official sources so you can recycle with confidence [citation:1][citation:7].</p>
+
+  <!-- graphic strip -->
+  <div class="graphic-strip">
+    <span class="graphic-icon">🗺️📍</span>
+    <span class="graphic-icon">🥫📦</span>
+    <span class="graphic-icon">🔋⚠️</span>
+    <span class="graphic-icon">🚛✅</span>
+  </div>
+
+  <!-- facility grid: knox county + city knoxville + blount/maryville -->
+  <h2><span>🏭</span> key facilities at a glance</h2>
+  <div class="facility-grid">
+    <div class="facility-card">
+      <div class="facility-icon">🏞️🧺</div>
+      <div class="facility-title">Knox County Convenience Centers</div>
+      <p>8 locations (Carter, Dutchtown, Halls, John Sevier, Karns, Powell, Tazewell Pike). Free for residents, proof of residency required [citation:1][citation:7].</p>
+      <span class="badge-facility">trash + recyclables</span>
+    </div>
+    <div class="facility-card">
+      <div class="facility-icon">🏙️🥤</div>
+      <div class="facility-title">City of Knoxville Drop-Off</div>
+      <p>5 staffed centers (e.g., 225 W Moody Ave, 210 Alice St). Accept glass, paper, plastic, metal — no trash [citation:8][citation:10].</p>
+      <span class="badge-facility">glass accepted here</span>
+    </div>
+    <div class="facility-card">
+      <div class="facility-icon">🏔️🔄</div>
+      <div class="facility-title">Blount County / Maryville</div>
+      <p>Multiple sites: 197 N Foothills Plaza Dr, 2410 US 411, 1227 McArthur Rd, and more. Accept #1/#2 plastic, paper, envelopes, etc. [citation:2][citation:6].</p>
+      <span class="badge-facility">check each location</span>
+    </div>
+  </div>
+
+  <!-- blinking block: hours & rules -->
+  <div class="blink-recycle">
+    <h3 style="margin-top:0; display:flex; gap:12px;"><span>⏰📅</span> hours · residency · limits</h3>
+    <p><strong>Knox County Centers:</strong> Mon/Tue/Thu/Fri 8am–6pm, Sat 7am–3pm. Closed Wed, Sun, holidays [citation:1][citation:5]. <strong>City of Knoxville Drop-offs:</strong> 8am–8pm daily [citation:8]. <strong>Residency:</strong> County centers require Knox County ID or proof of residency (utility bill, lease) [citation:1]. <strong>Limits:</strong> One 5'x8' pickup load of trash per day; recycling no limit, but please avoid overwhelming the bins [citation:1][citation:7].</p>
+  </div>
+
+  <!-- accepted materials table -->
+  <h2><span>📦</span> what materials are accepted?</h2>
+  <table>
+    <thead><tr><th>material</th><th>knox co. centers</th><th>city knoxville</th><th>blount/maryville</th></tr></thead>
+    <tbody>
+      <tr><td><strong>📄 paper / cardboard</strong></td><td>yes (mixed paper, cardboard) [1]</td><td>yes [8]</td><td>yes (envelopes, catalogs, etc.) [6]</td></tr>
+      <tr><td><strong>🥫 metal cans</strong></td><td>aluminum/steel food & beverage [1]</td><td>yes [8]</td><td>yes [6]</td></tr>
+      <tr><td><strong>🧃 plastic bottles/jugs (#1-#7)</strong></td><td>food/beverage containers [1][9]</td><td>yes [8]</td><td>yes, incl. #3 bottles [2][6]</td></tr>
+      <tr><td><strong>🥂 glass bottles/jars</strong></td><td>❌ not at county centers [10]</td><td>✅ accepted [8][10]</td><td>check specific site</td></tr>
+      <tr><td><strong>🔋 used oil / antifreeze</strong></td><td>yes (limited quantities) [1][9]</td><td>HHW facility [10]</td><td>varies</td></tr>
+      <tr><td><strong>🔩 scrap metal</strong></td><td>yes (ferrous/nonferrous) [1][9]</td><td>no</td><td>limited</td></tr>
+      <tr><td><strong>🖥️ electronics</strong></td><td>4 centers with Goodwill (Dutchtown, Halls, John Sevier, Karns) [1]</td><td>HHW facility [10]</td><td>Goodwill locations [4]</td></tr>
+      <tr><td><strong>🛞 tires</strong></td><td>4 passenger tires/year [1][9]</td><td>HHW facility [10]</td><td>check locally</td></tr>
+    </tbody>
+  </table>
+
+  <!-- special notes: glass, hazardous waste -->
+  <div style="display: flex; gap: 24px; justify-content: space-around; font-size: 3.2rem; margin: 2.5rem 0;">
+    <span>⚠️🧴</span> <span>🔋🚫</span> <span>🖥️📍</span> <span>🧹✅</span>
+  </div>
+
+  <h2><span>⚠️</span> important exceptions & special items</h2>
+  <div class="materials-grid">
+    <div class="material-item">🧪 <strong>hazardous waste</strong> – take to HHW Facility, 1033 Elm St, Knoxville [1][10]</div>
+    <div class="material-item">🧊 <strong>fridge/AC</strong> – must go to HHW (contains refrigerant) [1]</div>
+    <div class="material-item">🎨 <strong>paint</strong> – latex: dry & trash; oil-based: HHW [1][10]</div>
+    <div class="material-item">🏗️ <strong>shingles/block/brick</strong> – not accepted at centers [1]</div>
+    <div class="material-item">📺 <strong>TVs</strong> – trash compactor (if fits) or HHW for fee [1][10]</div>
+    <div class="material-item">🔋 <strong>car batteries</strong> – accepted at county centers [1]</div>
+  </div>
+
+  <!-- maryville / blount specific info -->
+  <h2><span>🗺️</span> maryville & blount county resources</h2>
+  <p>Residents of Maryville and Blount County have several recycling drop-off options. The <strong>Earth911 listings</strong> show multiple sites accepting #1/#2 plastic, paper, and more [citation:2][citation:6]. For example, the <strong>197 North Foothills Plaza Drive</strong> location in Maryville accepts envelopes, plastic bottles, and aluminum cans [citation:6]. The <strong>1227 McArthur Road</strong> site accepts a wide range of paper products [citation:6]. Always check individual site signage or call ahead, as accepted materials vary.</p>
+
+  <!-- blount county landfill / buyback center note -->
+  <div style="background: #dcf5e8; border-radius: 3rem; padding: 2rem 2.5rem; margin: 2.5rem 0;">
+    <span style="font-size:2.8rem; margin-right: 16px;">🏞️♻️</span>
+    <strong style="font-size:1.7rem;">Blount County Land Buyback Center</strong>
+    <p style="margin-top:0.8rem;">The Blount County Landfill (2911 McFee Rd, Maryville) operates a buyback center for certain recyclables like scrap metal and cardboard. They also have a convenience center for household waste. Hours vary; call (865) 980-6300 for current info.</p>
+  </div>
+
+  <!-- using centers effectively -->
+  <h3><span>💡</span> tips for a smooth visit</h3>
+  <ul style="margin:1rem 0 1.5rem 2.5rem; list-style-type: '✔️ '; font-size:1.1rem;">
+    <li>separate recyclables before you go — it's faster</li>
+    <li>flatten cardboard boxes to save space</li>
+    <li>for large loads, visit on weekdays (less busy) [1]</li>
+    <li>bring proof of residency if plates aren't Knox County [1]</li>
+    <li>never scavenge — it's illegal and unsafe [1]</li>
+    <li>if you have bulky items or need <strong>junk removal</strong>, consider a professional hauling service</li>
+  </ul>
+
+  <!-- final educational note -->
+  <p><span class="blink-dot"></span> Recycling right protects our environment and keeps disposal costs low. Whether you're in Knoxville, Maryville, or anywhere in between, these facilities are here to help. When in doubt, check the Knox County Solid Waste page or call ahead. And for items that don't fit the centers' rules, professional <strong>junk removal</strong> can be a convenient alternative.</p>
+
+  <!-- Links exactly as requested: at the end -->
+  <div class="footer-links">
+    <a href="https://donerighthaulaway.com/" target="_blank" rel="noopener">🚛 junk removal</a>
+    <a href="https://share.google/bcyowB3aW1hC8IdD1" target="_blank" rel="noopener">⭐ GMB</a>
+  </div>
+
+  <!-- footer note -->
+  <div style="text-align: center; margin-top: 2.2rem; font-size: 0.95rem; color: #1e6d4a;">
+    ♻️ knoxville · maryville recycling · 100% educational, zero fluff.
+  </div>
+</div>
+</body>
+</html>
